@@ -1,0 +1,20 @@
+body {
+    background-color: orange;
+}
+
+p {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.insp {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.mogus {
+    display: inline-block;
+    justify-content: center;
+}

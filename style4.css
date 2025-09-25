@@ -1,0 +1,8 @@
+body{
+    background-color: violet;
+}
+
+*{
+    justify-content: space-around;
+    text-align: center;
+}
