@@ -10,15 +10,15 @@ function imprimeGuess() {
   let mensagem = document.getElementById("mensagem");
 
   if (entrada === numeroSecreto) {
-    mensagem.textContent = "Acertou!"
+    mensagem.textContent = "número igual"
     mensagem.style.setProperty("background-color", "green")
   } else if (entrada < numeroSecreto) {
-    mensagem.textContent = "numero maior" 
+    mensagem.textContent = "número maior" 
     mensagem.style.setProperty("background-color", "red")
     menores.push(numero)
     document.getElementById("menores").textContent = menores
   } else if (entrada > numeroSecreto) {
-    mensagem.textContent = "O número secreto é menor!";
+    mensagem.textContent = "número menor";
     mensagem.style.setProperty("background-color", "red");
     maiores.push(numero);
     document.getElementById("maiores").textContent = maiores
