@@ -6,7 +6,6 @@ let maiores = [];
 function imprimeGuess() {
   let numero = document.getElementById("numero");
   let entrada = document.getElementById("entrada");
-  let diferenca = numero - numeroSecreto;
 
   let mensagem = document.getElementById("mensagem");
 
