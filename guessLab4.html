@@ -2,20 +2,20 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="style4.css">
+        <link rel="stylesheet" href="styleLab4.css">
     </head>
     <body>
-        <input type="number" id="numero">
-        <br><input type="button" id="in_button" value="Clique aqui" onclick = "imprimeGuess()">
+        <input type="number" id="inputNumero" placeholder="Digite um número">
+        <br><button onclick="imprimeGuess()">Clique aqui</button>
 
-        <script src="script.js" type="text/javascript"></script>
+        <script src="scriptLab4.js" type="text/javascript"></script>
+        
+        <h2 id="mensagem"></h2>
 
-        <p id="parâmetro"></p>
-        <br><p>Tentativas pequenas:</p>
-        <p id="tentativa1"></p>
-
-        <br><p>Tentativas grandes:</p>
-        <p id="tentativa2"></p>
-
+        <p><strong>Tentativas pequenas:</strong></p>
+        <p><span id="menores"></span></p>
+        <p><strong>Tentativas grandes:</strong></p>
+        <p><span id="maiores"></span></p>
+        
     </body>
 </html>

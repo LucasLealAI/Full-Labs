@@ -1,22 +1,27 @@
-function imprimeGuess(certo){
-    let guess = document.getElementById("numero").value;
+let numeroSecreto = Math.floor(Math.random() * 100);
 
-    if(guess < certo){
-        document.getElementById("resposta").innerHTML = errado1
+let menores = [];
+let maiores = [];
 
-    } else if(guess > certo) {
-        document.getElementById("resposta").innerHTML = errado2
-    } else if(guess = certo) {
-        document.getElementById("resposta").innerHTML = errado3
-    }
+function imprimeGuess() {
+  let numero = document.getElementById("numero");
+  let entrada = document.getElementById("entrada");
+  let diferenca = numero - numeroSecreto;
+
+  let mensagem = document.getElementById("mensagem");
+
+  if (entrada === numeroSecreto) {
+    mensagem.textContent = "Acertou!"
+    mensagem.style.setProperty("background-color", "green")
+  } else if (entrada < numeroSecreto) {
+    mensagem.textContent = "numero maior" 
+    mensagem.style.setProperty("background-color", "red")
+    menores.push(numero)
+    document.getElementById("menores").textContent = menores
+  } else if (entrada > numeroSecreto) {
+    mensagem.textContent = "O número secreto é menor!";
+    mensagem.style.setProperty("background-color", "red");
+    maiores.push(numero);
+    document.getElementById("maiores").textContent = maiores
+  }
 }
-
-function misterioso(){
-    const certo = parseInt(Math.random() * 100);
-}
-
-function numeracao(){
-    let parametro = document.getElementById("parametro").value;
-}
-
-imprimeCerto(30)
