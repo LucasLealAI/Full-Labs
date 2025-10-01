@@ -1,8 +1,18 @@
 body{
-    background-color: aquamarine;
+    background-color: aliceblue;
 }
 
 *{
     justify-content: space-around;
     text-align: center;
+}
+
+#canvas{
+    background-color: white;
+    margin: 50px;
+}
+
+#canvas2{
+    background-color: aqua;
+    margin: 50px;
 }
