@@ -9,4 +9,8 @@ app.use(express.static('./public'));
 var server = http.createServer(app);
 server.listen(80);
 
-console.log("servidor rodando...")
+console.log("servidor rodando...".rainbow)
+
+app.get('/', function(requisicao, resposta){
+    resposta.redirect('Lab1/Lab1.html');
+})
