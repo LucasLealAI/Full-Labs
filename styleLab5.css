@@ -12,6 +12,14 @@ body{
     margin: 50px;
 }
 
+#canvas1{
+
+/* nn sei o nome dessa porra de cor foi mal fessôr */
+
+    background-color: #98EDC2;
+    margin: 50px;
+}
+
 #canvas2{
     background-color: aqua;
     margin: 50px;
