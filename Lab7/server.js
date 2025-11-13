@@ -6,30 +6,31 @@ var bodyParser = require("body-parser")
 
 var app = express();
 app.use(express.static('./public'));
-app.use(bodyParser.urlencoded({extended: false }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true }))
+app.use(express.static(__dirname + "/views"));
 app.set('view engine', 'ejs')
-app.set('views', './views');
+app.set('views', __dirname + './views');
 
 var server = http.createServer(app);
 server.listen(80);
 
 console.log("servidor rodando...".rainbow)
 
+let usuarios = []
 
 // é tudo ez, só falta tu saber a diferença de get e post e dps só copiar oq
 // voce fez na aula 9 que tá lá no github tlg?
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "Lab2project.html");
+  res.sendFile(__dirname + "Lab7/public/Lab2project.html");
 });
 
 app.get("/cadastra", (req, res) => {
-  res.sendFile(__dirname + "Lab7cadastro.html");
+  res.sendFile(__dirname + "Lab7/public/Lab8cadastro.html");
 });
 
 app.get("/login", (req, res) => {
-  res.sendFile(__dirname + "Lab7login.html");
+  res.sendFile(__dirname + "Lab7/public/Lab8login.html");
 });
 
 app.post("/cadastrar", function(req, res) {
