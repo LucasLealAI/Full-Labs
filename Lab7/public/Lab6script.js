@@ -22,14 +22,11 @@ canvas.addEventListener('mousemove', (evento) => {
     const metadeAltura = img.height / 2;
 
     X = Math.min(Math.max(mouseX, metadeLargura), canvas.width - metadeLargura);
+    X = mouseX
     Y = Math.min(Math.max(mouseY, metadeAltura), canvas.height - metadeAltura);
+    Y = mouseY
 
     dentro = true
-    desenhar()
-});
-
-canvas.addEventListener("mouseleave", () => {
-    dentro = false
     desenhar()
 });
 
