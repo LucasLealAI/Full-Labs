@@ -11,8 +11,6 @@ app.use(express.static(__dirname + "/views"));
 app.set('view engine', 'ejs')
 app.set('views', __dirname + './views');
 
-var server = http.createServer(app);
-
 console.log("servidor rodando...".rainbow)
 
 let usuarios = []
@@ -37,10 +35,10 @@ app.post("/cadastrar", function(req, res) {
     const existente = usuarios.find(u => u.nome === nome);
     
     if (existente) {
-        res.render("Lab8Resposta.ejs", {mensagem: "Usuário já cadastrado!"})
+        res.render("Lab8resposta", {mensagem: "Usuário já cadastrado!"})
     } else {
         usuarios.push({ nome, senha })
-        res.render("Lab8Resposta.ejs", {mensagem: "Cadastro realizado com sucesso!"})
+        res.render("Lab8resposta", {mensagem: "Cadastro realizado com sucesso!"})
     }
 })
 
@@ -49,9 +47,9 @@ app.post("/logar", (req, res) => {
     const usuario = usuarios.find(u => u.nome === nome && u.senha === senha);
 
     if (usuario) {
-        res.render("Lab8Resposta", {mensagem: "Bem-vindo, ${nome}!"})
+        res.render("Lab8resposta", {mensagem: "Bem-vindo, ${nome}!"})
     } else {
-        res.render("Lab8Resposta", {mensagem: "Falha no usuário, tente novamente."})
+        res.render("Lab8resposta", {mensagem: "Falha no usuário, tente novamente."})
     }
 })
 
