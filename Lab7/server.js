@@ -1,10 +1,10 @@
 require("colors");
 
-var http = require('http');
-var express = require('express');
-var bodyParser = require("body-parser")
+const http = require('http');
+const express = require('express');
+const bodyParser = require("body-parser")
 
-var app = express();
+const app = express();
 app.use(express.static('./public'));
 app.use(bodyParser.urlencoded({extended: true }))
 app.use(express.static(__dirname + "/views"));
@@ -12,7 +12,6 @@ app.set('view engine', 'ejs')
 app.set('views', __dirname + './views');
 
 var server = http.createServer(app);
-server.listen(80);
 
 console.log("servidor rodando...".rainbow)
 
@@ -22,15 +21,15 @@ let usuarios = []
 // voce fez na aula 9 que tá lá no github tlg?
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "Lab7/public/Lab2project.html");
+  res.sendFile(__dirname + "/views/Lab2project.html");
 });
 
-app.get("/cadastra", (req, res) => {
-  res.sendFile(__dirname + "Lab7/public/Lab8cadastro.html");
+app.get("/cadastro", (req, res) => {
+  res.sendFile(__dirname + "/views/Lab8cadastro.html");
 });
 
 app.get("/login", (req, res) => {
-  res.sendFile(__dirname + "Lab7/public/Lab8login.html");
+  res.sendFile(__dirname + "/views/Lab8login.html");
 });
 
 app.post("/cadastrar", function(req, res) {
@@ -38,10 +37,10 @@ app.post("/cadastrar", function(req, res) {
     const existente = usuarios.find(u => u.nome === nome);
     
     if (existente) {
-        res.render("resposta", {mensagem: "Usuário já cadastrado!"})
+        res.render("Lab8Resposta", {mensagem: "Usuário já cadastrado!"})
     } else {
         usuarios.push({ nome, senha })
-        res.render("resposta", {mensagem: "Cadastro realizado com sucesso!"})
+        res.render("Lab8Resposta", {mensagem: "Cadastro realizado com sucesso!"})
     }
 })
 
@@ -50,8 +49,12 @@ app.post("/logar", (req, res) => {
     const usuario = usuarios.find(u => u.nome === nome && u.senha === senha);
 
     if (usuario) {
-        res.render("resposta", {mensagem: "Bem-vindo, ${nome}"})
+        res.render("Lab8Resposta", {mensagem: "Bem-vindo, ${nome}!"})
     } else {
-        res.render("resposta", {mensagem: "Falha no usuário, tente novamente."})
+        res.render("Lab8Resposta", {mensagem: "Falha no usuário, tente novamente."})
     }
 })
+
+app.listen(80, () => {
+  console.log("80");
+});
