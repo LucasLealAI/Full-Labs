@@ -2,14 +2,14 @@ require("colors");
 
 const http = require('http');
 const express = require('express');
-const bodyParser = require("body-parser")
+const bodyParser = require("body-parser");
 
 const app = express();
 app.use(express.static('./public'));
-app.use(bodyParser.urlencoded({extended: true }))
+app.use(bodyParser.urlencoded({extended: true }));
 app.use(express.static(__dirname + "/views"));
-app.set('view engine', 'ejs')
-app.set('views', __dirname + './views');
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
 
 console.log("servidor rodando...".rainbow)
 
@@ -35,10 +35,10 @@ app.post("/cadastrar", function(req, res) {
     const existente = usuarios.find(u => u.nome === nome);
     
     if (existente) {
-        res.render("Lab8resposta", {mensagem: "Usuário já cadastrado!"})
+        res.render("resposta", {mensagem: "Usuário já cadastrado!"})
     } else {
         usuarios.push({ nome, senha })
-        res.render("Lab8resposta", {mensagem: "Cadastro realizado com sucesso!"})
+        res.render("resposta", {mensagem: "Cadastro realizado com sucesso!"})
     }
 })
 
@@ -47,9 +47,9 @@ app.post("/logar", (req, res) => {
     const usuario = usuarios.find(u => u.nome === nome && u.senha === senha);
 
     if (usuario) {
-        res.render("Lab8resposta", {mensagem: "Bem-vindo, ${nome}!"})
+        res.render("resposta", {mensagem: `Bem-vindo, ${nome}!`})
     } else {
-        res.render("Lab8resposta", {mensagem: "Falha no usuário, tente novamente."})
+        res.render("resposta", {mensagem: "Falha no usuário, tente novamente."})
     }
 })
 
